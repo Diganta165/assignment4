@@ -96,7 +96,7 @@
                     </div>
                 </div>
             </div>
-            <button class="btn-style">Book Now</button>
+            <button onclick="booking()" class="btn-style">Book Now</button>
         </div>
 
         <div class="booking-content">
@@ -139,6 +139,8 @@
 
             const total = subTotal + tax;
             document.getElementById('total').innerText = '$' + total;
+
+            return total;
         }
 
         function getInputValue(ticketType){
@@ -148,6 +150,18 @@
             return ticketCount;
         }
         
+        function booking(){
+            const firstClassCount = getInputValue('firstClass');
+            const economyCount = getInputValue('economy');
+            const totalTK = calculateTotal();
+
+            if(totalTK > 0){
+                alert("You have successfully booked your ticket! Your have purchased " + firstClassCount +" First-Class tickets & " + economyCount + " Economy Class tickets.Your total cost is " + totalTK + "tk" );
+            }
+            else{
+                alert("Error!!! You have to select tickets to book any...");
+            }
+        }
 
     </script>
 
